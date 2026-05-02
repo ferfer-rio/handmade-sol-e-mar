@@ -1,14 +1,12 @@
+/* --- SEU CSS ORIGINAL COMPLETO (RESTAURADO) --- */
 :root {
     --bg-light: #f9f8f4;
+    --bg-footer-light: #fcfaf8;
     --text-dark: #1a1a1a;
     --transition: all 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
-* { 
-    margin: 0; 
-    padding: 0; 
-    box-sizing: border-box; 
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body { 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
@@ -16,21 +14,20 @@ body {
     line-height: 1.6;
 }
 
-/* --- HEADER DINÂMICO (ESTRUTURA BASE) --- */
+/* --- HEADER DINÂMICO --- */
 #main-header {
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
     transition: var(--transition);
-    background-color: transparent; /* Começa transparente */
+    background-color: transparent;
     padding: 20px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-/* Estado quando o usuário rola a página */
 #main-header.scrolled {
     background-color: rgba(255, 255, 255, 0.95);
     padding: 10px 0;
@@ -45,25 +42,17 @@ body {
     width: 100%;
 }
 
-/* --- LOGO COM TRANSIÇÃO DE TAMANHO (EFEITO SALAR) --- */
 #main-logo {
-    width: 220px; /* Tamanho inicial desktop */
+    width: 220px; 
     transition: var(--transition);
     display: block;
     margin: 0 auto;
 }
 
-/* Redução automática via JS (Classe .scrolled) */
-#main-header.scrolled #main-logo {
-    width: 120px; 
-}
+#main-header.scrolled #main-logo { width: 120px; }
+#main-header.halfway #main-logo { width: 80px; }
 
-/* Redução extra na metade da página (Classe .halfway) */
-#main-header.halfway #main-logo {
-    width: 80px; 
-}
-
-/* --- ELEMENTOS EXCLUSIVOS DESKTOP --- */
+/* --- NAVEGAÇÃO E BUSCA --- */
 .search-container { 
     display: flex; 
     align-items: center; 
@@ -80,27 +69,11 @@ body {
     font-size: 12px; 
 }
 
-.user-icons { 
-    justify-self: end; 
-    font-size: 18px; 
-}
+.user-icons { justify-self: end; font-size: 18px; }
+.user-icons i { margin-left: 20px; cursor: pointer; }
 
-.user-icons i { 
-    margin-left: 20px; 
-    cursor: pointer; 
-}
-
-.main-nav { 
-    margin-top: 20px; 
-    transition: var(--transition); 
-}
-
-.main-nav ul { 
-    display: flex; 
-    justify-content: center; 
-    list-style: none; 
-}
-
+.main-nav { margin-top: 20px; }
+.main-nav ul { display: flex; justify-content: center; list-style: none; }
 .main-nav a { 
     text-decoration: none; 
     color: var(--text-dark); 
@@ -111,12 +84,7 @@ body {
 }
 
 /* --- BANNER HERO --- */
-.hero-banner { 
-    height: 100vh; 
-    width: 100%; 
-    overflow: hidden; 
-}
-
+.hero-banner { height: 100vh; width: 100%; overflow: hidden; }
 .hero-image { 
     height: 100%; 
     background-size: cover; 
@@ -128,95 +96,191 @@ body {
 
 .hero-text { 
     color: white; 
-    text-align: center; 
+    text-align: center;
+    filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.5));
+    padding: 0 20px;
 }
 
 .hero-text h1 { 
-    font-size: 80px; 
-    font-weight: bold; 
+    font-family: "Libre Baskerville", serif;
+    font-size: clamp(40px, 12vw, 90px); 
+    letter-spacing: 12px; 
+    text-transform: uppercase;
 }
 
-/* --- GRID DE PRODUTOS --- */
-.product-section { 
-    padding: 80px 40px; 
-    text-align: center; 
+.hero-text h2 { 
+    font-size: clamp(32px, 5vw, 36px);
+    letter-spacing: 10px;
+    color: #D4AF37;
+    text-transform: uppercase;
 }
 
+/* --- PRODUTOS --- */
+.product-section { padding: 80px 40px; text-align: center; }
 .product-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
+.product-card img { width: 100%; height: auto; }
 
-.product-card img { 
-    width: 100%; 
-    height: auto; 
-    transition: 0.3s; 
+/* --- BOTÃO WHATSAPP --- */
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: transparent;
+    color: #1a1a1a;
+    font-size: 38px;
+    z-index: 2000;
+    transition: var(--transition);
+    text-decoration: none;
 }
 
-/* --- RESPONSIVIDADE: MOBILE E TABLET (MAX 1024PX) --- */
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* --- FOOTER --- */
+.main-footer { background-color: white; color: var(--text-dark); margin-top: 50px; }
+
+.footer-benefits {
+    display: flex;
+    justify-content: space-around;
+    padding: 40px 10%;
+    background-color: var(--bg-footer-light);
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+.benefit-item i { font-size: 24px; margin-bottom: 10px; display: block; }
+.benefit-item h4 { font-size: 14px; text-transform: uppercase; margin-bottom: 5px; }
+.benefit-item p { font-size: 12px; color: #666; }
+
+.instagram-footer {
+    padding: 40px;
+    text-align: center;
+    background-color: var(--bg-footer-light);
+}
+
+.instagram-footer .insta-handle { 
+    text-decoration: none; 
+    color: black; 
+    font-weight: bold; 
+    font-size: 18px;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.instagram-footer .btn-siga {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 30px;
+    border: 1px solid black;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+    color: black;
+    transition: 0.3s;
+}
+
+.instagram-footer .btn-siga:hover { background: black; color: white; }
+
+.footer-content {
+    background-color: black;
+    color: white;
+    padding: 60px 10%;
+    display: grid;
+    grid-template-columns: 1.5fr 2fr;
+    gap: 50px;
+}
+
+.newsletter-section h4 { font-size: 12px; letter-spacing: 1px; margin-bottom: 20px; line-height: 1.4; }
+
+.newsletter-input {
+    display: flex;
+    border-bottom: 1px solid #444;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.newsletter-input input {
+    background: transparent;
+    border: none;
+    color: white;
+    width: 100%;
+    outline: none;
+    font-size: 14px;
+}
+
+.newsletter-input button { background: transparent; border: none; color: white; cursor: pointer; font-size: 18px; }
+
+.footer-links-container { display: flex; justify-content: space-between; gap: 20px; }
+
+.footer-column h4 { font-size: 13px; margin-bottom: 20px; letter-spacing: 1px; text-transform: uppercase; }
+.footer-column ul { list-style: none; }
+.footer-column li { margin-bottom: 12px; }
+.footer-column a, .footer-column li { color: #ccc; text-decoration: none; font-size: 13px; line-height: 1.5; }
+
+.footer-bottom {
+    background-color: black;
+    color: white;
+    padding: 40px 10% 120px;
+    text-align: center;
+    border-top: 1px solid #222;
+}
+
+.payment-methods { font-size: 35px; margin-bottom: 25px; color: white; }
+.payment-methods i { margin: 0 15px; }
+
+.copyright { font-size: 11px; color: #888; line-height: 1.8; }
+.copyright a { color: #888; text-decoration: none; font-weight: bold; }
+
+.mobile-bottom-nav { display: none; }
+
+/* --- RESPONSIVIDADE (SUA ORIGINAL) --- */
 @media (max-width: 1024px) {
-    /* Esconde o que não deve aparecer no topo no mobile */
-    .search-container, .user-icons, .main-nav { 
-        display: none !important; 
-    }
+    .search-container, .user-icons, .main-nav { display: none !important; }
+    .top-bar { display: flex; justify-content: center; }
+    
+    .product-grid { grid-template-columns: repeat(2, 1fr); gap: 15px; }
 
-    /* Centraliza a logo no topo */
-    .top-bar {
+    .footer-benefits { flex-direction: column; gap: 40px; }
+    
+    .footer-content { grid-template-columns: 1fr; padding: 40px 20px; }
+    .footer-links-container { flex-direction: column; gap: 0; }
+
+    .accordion-header {
         display: flex;
-        justify-content: center;
-        padding: 0;
+        justify-content: space-between;
+        padding: 20px 0;
+        border-bottom: 1px solid #222;
+        cursor: pointer;
+        margin-bottom: 0;
     }
 
-    #main-header {
-        padding: 15px 0;
-    }
+    .accordion-content { display: none; padding: 15px 0; }
+    .accordion.active .accordion-content { display: block; }
+    .accordion.active .fa-chevron-down { transform: rotate(180deg); }
 
-    /* Ajuste do tamanho da logo para mobile */
-    #main-logo {
-        width: 150px; /* Tamanho inicial mobile */
-    }
-
-    #main-header.scrolled #main-logo {
-        width: 100px; /* Tamanho reduzido no scroll mobile */
-    }
-
-    /* Grid de produtos para 2 colunas */
-    .product-grid { 
-        grid-template-columns: repeat(2, 1fr); 
-        gap: 15px;
-    }
-
-    /* BARRA DE NAVEGAÇÃO INFERIOR FIXA */
     .mobile-bottom-nav {
         position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        padding: 15px 0;
-        background: #fcfaf8;
-        border-top: 1px solid #ddd;
-        z-index: 1001;
+        bottom: 0; left: 0; width: 100%;
+        display: flex; justify-content: space-around;
+        padding: 15px 0; background: #fcfaf8;
+        border-top: 1px solid #ddd; z-index: 1001;
     }
-    
-    .mobile-bottom-nav a {
-        font-size: 22px;
-        color: var(--text-dark);
-        text-decoration: none;
-    }
-
-    /* Evita que o rodapé cubra o último conteúdo da página */
-    body { 
-        padding-bottom: 80px; 
-    }
+    .mobile-bottom-nav a { font-size: 22px; color: var(--text-dark); }
 }
 
-/* --- ESCONDE O RODAPÉ NO DESKTOP --- */
-@media (min-width: 1025px) {
-    .mobile-bottom-nav { 
-        display: none; 
-    }
+/* --- REGRAS DO MODAL (INVISÍVEL NO DESKTOP) --- */
+.mobile-menu-modal {
+    position: fixed; top: 0; left: -100%; width: 100%; height: 100%;
+    background: var(--bg-light); z-index: 5000; transition: left 0.4s ease;
+    padding: 30px; overflow-y: auto;
 }
+.mobile-menu-modal.active { left: 0; }
+.menu-header { margin-bottom: 20px; }
+#close-menu { background: none; border: none; font-size: 30px; cursor: pointer; }
+.mobile-categories { list-style: none; }
+.mobile-categories li { padding: 18px 0; border-bottom: 1px solid #eee; }
+.mobile-categories a { text-decoration: none; color: black; text-transform: uppercase; font-size: 14px; display: flex; justify-content: space-between; }

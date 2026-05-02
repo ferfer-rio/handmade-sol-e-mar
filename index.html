@@ -6,8 +6,31 @@
     <title>Férfer | Beach Culture</title>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <div id="mobile-menu-overlay" class="mobile-menu-modal">
+        <div class="menu-header">
+            <button id="close-menu"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="menu-languages">
+            <select><option>Brasil</option></select>
+        </div>
+        <ul class="mobile-categories">
+            <li><a href="#tops">Tops <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#camisas">Camisas <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#blusas">Blusas <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#calcas">Calças <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#vestidos">Vestidos <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#saias">Saias <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#biquinis">Biquínis <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#acessorios">Acessórios <i class="fa-solid fa-chevron-right"></i></a></li>
+            <li><a href="#todos" style="font-weight: bold; margin-top: 10px;">Todos os produtos <i class="fa-solid fa-arrow-right"></i></a></li>
+            <li><a href="#encomendar" style="color: #D4AF37; font-weight: bold;">Como encomendar</a></li>
+        </ul>
+    </div>
 
     <header id="main-header">
         <div class="top-bar">
@@ -15,11 +38,9 @@
                 <input type="text" id="search-input" placeholder="O que você está buscando?">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </div>
-            
             <div class="logo-container">
                 <img src="imagens/ferfer-riologofundotransp.png" alt="Férfer Logo" id="main-logo">
             </div>
-
             <div class="user-icons desktop-only">
                 <i class="fa-solid fa-globe"></i>
                 <i class="fa-regular fa-user"></i>
@@ -29,16 +50,17 @@
         </div>
 
         <nav class="main-nav desktop-only">
-            <ul>
-                <li><a href="#">Tops</a></li>
-                <li><a href="#">Camisas</a></li>
-                <li><a href="#">Blusas</a></li>
-                <li><a href="#">Calças</a></li>
-                <li><a href="#">Vestidos</a></li>
-                <li><a href="#">Saias</a></li>
-                <li><a href="#">Biquínis</a></li>
-                <li><a href="#">Acessórios</a></li>
-                <li><a href="#">Conjuntos</a></li>
+            <ul class="nav-links">
+                <li><a href="#tops">Tops</a></li>
+                <li><a href="#camisas">Camisas</a></li>
+                <li><a href="#blusas">Blusas</a></li>
+                <li><a href="#calcas">Calças</a></li>
+                <li><a href="#vestidos">Vestidos</a></li>
+                <li><a href="#saias">Saias</a></li>
+                <li><a href="#biquinis">Biquínis</a></li>
+                <li><a href="#acessorios">Acessórios</a></li>
+                <li><a href="#todos">Todos os produtos</a></li>
+                <li><a href="#encomendar">Como encomendar</a></li>
             </ul>
         </nav>
     </header>
@@ -55,19 +77,18 @@
         </section>
 
         <section class="product-section">
-            <h2 class="section-title">Últimos lançamentos</h2>
-            <div class="product-grid" id="latest-products">
-                <div class="product-card">
-                    <img src="https://images.unsplash.com/photo-1590550146019-18b0a58f129c?q=80&w=500" alt="Produto">
+            <div class="product-grid">
+                <div class="product-card" data-name="vestido eze tule verde">
+                    <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=500" alt="Produto">
                     <h3>Vestido Eze Tule Verde</h3>
                     <p>R$ 889,00</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-name="vestido sahara tule onça">
                     <img src="https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=500" alt="Produto">
                     <h3>Vestido Sahara Tule Onça</h3>
                     <p>R$ 889,00</p>
                 </div>
-                <div class="product-card">
+                <div class="product-card" data-name="saia zuri longa tule onça">
                     <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=500" alt="Produto">
                     <h3>Saia Zuri Longa Tule Onça</h3>
                     <p>R$ 629,00</p>
@@ -76,10 +97,66 @@
         </section>
     </main>
 
+    <footer class="main-footer">
+        <div class="footer-benefits">
+            <div class="benefit-item"><i class="fa-solid fa-truck"></i><h4>Entrega garantida</h4><p>em todo o Brasil</p></div>
+            <div class="benefit-item"><i class="fa-regular fa-credit-card"></i><h4>Pague parcelado</h4><p>no cartão de crédito</p></div>
+            <div class="benefit-item"><i class="fa-solid fa-rotate"></i><h4>Primeira troca grátis</h4><p>você tem 15 dias!</p></div>
+        </div>
+
+        <div class="instagram-footer">
+            <a href="#" class="insta-handle">@ferfer.rio</a>
+            <p>Estamos no instagram</p>
+            <a href="#" class="btn-siga">SIGA-NOS</a>
+        </div>
+
+        <div class="footer-content">
+            <div class="newsletter-section">
+                <h4>ASSINE NOSSA NEWSLETTER E GANHAR DESCONTOS NA PRIMEIRA COMPRA</h4>
+                <div class="newsletter-input">
+                    <input type="email" placeholder="E-mail">
+                    <button type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+
+            <div class="footer-links-container">
+                <div class="footer-column accordion">
+                    <h4 class="accordion-header">INSTITUCIONAL <i class="fa-solid fa-chevron-down mobile-only"></i></h4>
+                    <ul class="accordion-content">
+                        <li><a href="#">Quem somos</a></li>
+                        <li><a href="#">Trocas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column accordion">
+                    <h4 class="accordion-header">CONTATO <i class="fa-solid fa-chevron-down mobile-only"></i></h4>
+                    <ul class="accordion-content">
+                        <li>(21) 98845-7601</li>
+                        <li>Copacabana, RJ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="payment-methods">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+            </div>
+            <div class="copyright">
+                <p>Copyright Férfer Rio - 2026. Todos os direitos reservados.</p>
+                <p>Feito por: <a href="#">Enceladus Marketec</a> by Anderson Caetano</p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" class="whatsapp-float">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
     <nav class="mobile-bottom-nav">
         <a href="#" class="nav-item"><i class="fa-solid fa-house"></i></a>
         <a href="#" class="nav-item" id="open-menu"><i class="fa-solid fa-bars"></i></a>
-        <a href="#" class="nav-item"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <a href="#" class="nav-item" id="mobile-search-trigger"><i class="fa-solid fa-magnifying-glass"></i></a>
         <a href="#" class="nav-item"><i class="fa-regular fa-user"></i></a>
         <a href="#" class="nav-item"><i class="fa-solid fa-bag-shopping"></i></a>
     </nav>
